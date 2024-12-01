@@ -1,0 +1,12 @@
+:root {
+  // base
+  --font-family: "Inter", sans-serif;
+  --content-width: 1290px;
+  --container-offset: 30px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+  // colors
+  --bg-color: rgb(30, 30, 30);
+  --white-color: #fff;
+  --green-color: #06b3a8;
+}
