@@ -23,6 +23,7 @@
   }
 
   &__btn {
+    margin-bottom: 100px;
     border-radius: 10px;
     padding: 16px 32px;
     font-weight: 600;
@@ -33,6 +34,67 @@
   }
 
   &__trendbox {
+    width: 100%;
 
+    &-top {
+      align-items: center;
+      border-bottom: 1px solid rgba(119, 119, 119, 0.1);
+      padding-bottom: 8px;
+    }
+
+    &-list {
+      justify-content: space-between;
+    }
+
+    &-item {
+      border-radius: 10px;
+      padding: 25px 20px 20px;
+      min-width: 23%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.01);
+      backdrop-filter: blur(10px);
+    }
+
+    &-img {
+      margin-right: 20px;
+      width: 48px;
+    }
+
+    &-ticker {
+      margin-right: 20px;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 15px;
+      color: var(--white-color);
+
+      &-descr {
+        border-radius: 3px;
+        padding: 3px 6px;
+        font-size: 14px;
+        line-height: 15px;
+        color: var(--bg-color);
+        background-color: #777;
+      }
+    }
+
+    &-bottom {
+      padding-top: 9px;
+    }
+
+    &-price {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 15px;
+      color: var(--white-color);
+    }
+
+    &-procent {
+      display: block;
+      font-size: 12px;
+      line-height: 15px;
+      color: var(--white-color);
+    }
   }
 }
