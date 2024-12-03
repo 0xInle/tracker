@@ -70,8 +70,10 @@
       &-descr {
         border-radius: 3px;
         padding: 3px 6px;
+        min-width: 50px;
         font-size: 14px;
         line-height: 15px;
+        text-align: center;
         color: var(--bg-color);
         background-color: #777;
       }

@@ -1,0 +1,179 @@
+.portfolio {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  &__top {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__name {
+    align-items: center;
+  }
+
+  &__avatar {
+    display: block;
+    margin-right: 20px;
+    border: 1px solid var(--green-color);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 60px;
+    color: var(--white-color);
+  }
+
+  &__btn {
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 15px;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &--sharring {
+      border: 1px solid var(--green-color);
+      padding: 16px 32px;
+      color: var(--white-color);
+    }
+
+    &--manage {
+      border: 1px solid var(--green-color);
+      padding: 16px 32px;
+      color: var(--white-color);
+    }
+
+    &--add {
+      padding: 16px 32px;
+      color: var(--white-color);
+      background-color: var(--green-color);
+    }
+
+    &-sharring-svg, &-manage-svg {
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+    }
+
+    &-sharring-contetn, &-manage-contetn {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__content {
+    padding-top: 50px;
+  }
+
+  &__list {
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 23%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(10px);
+  }
+
+  &__item {
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &:not(:first-child) {
+      align-items: center;
+      min-height: 21px;
+    }
+
+    &-block {
+      flex-direction: column;
+    }
+
+    &-balance {
+      color: #808080;
+    }
+
+    &-dropdown {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--white-color);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: var(--white-color);
+
+      &-svg {
+        margin-left: 10px;
+        width: 16px;
+        height: 16px;
+
+        path {
+          fill: var(--white-color);
+        }
+      }
+    }
+
+    &-descr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    &-price {
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 15px;
+      color: var(--white-color);
+    }
+
+    &-changes {
+      display: flex;
+      align-items: center;
+    }
+
+    &-procent {
+      margin-right: 10px;
+      border-radius: 3px;
+      padding: 3px 6px;
+      font-size: 12px;
+      line-height: 15px;
+      color: var(--white-color);
+      background-color: #46a756;
+    }
+
+    &-total-procent {
+      margin-right: 10px;
+      border-radius: 3px;
+      padding: 3px 6px;
+      font-size: 12px;
+      line-height: 15px;
+      color: var(--white-color);
+      background-color: #46a756;
+    }
+
+    &-income {
+      line-height: 0;
+      color: var(--white-color);
+    }
+
+    &-name {
+      color: #808080;
+    }
+
+    &-total-income, &-realised-income, &-unrealised-income, &-invested-income {
+      align-content: center;
+      line-height: 0;
+      color: var(--white-color);
+    }
+  }
+}
