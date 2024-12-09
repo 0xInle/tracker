@@ -1,4 +1,4 @@
-<section class="portfolio container">
+<section id="portfolio" class="portfolio container">
   <div class="portfolio__top flex">
     <div class="portfolio__name flex">
       <span class="portfolio__avatar"></span>
@@ -29,7 +29,7 @@
           Manage
         </span>
       </button>
-      <button class="portfolio__btn portfolio__btn--add btn-reset">
+      <button id="addTransaction" class="portfolio__btn portfolio__btn--add btn-reset">
         Add Transaction
       </button>
     </div>
@@ -366,7 +366,7 @@
               <div class="portfolio__token-name portfolio__token-width flex">
                 <img src="/img/svg/icon-btc.svg" class="portfolio__token-image" alt="Изображение">
                 <div class="portfolio__token-name-container">
-                  <div class="portfolio__token-name">
+                  <div class="portfolio__token-name-income">
                     Btc
                   </div>
                   <div class="portfolio__token-name-descr">
@@ -399,13 +399,185 @@
                 <div class="portfolio__token-holdings-income">
                   12 432,65 $
                 </div>
-                <div class="portfolio__token-holdings-procent">
-                  1 BTC
+                <div class="portfolio__token-holdings-token">
+                  1 Btc
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="portfolio__token-item flex">
+            <div class="portfolio__token-container flex">
+              <div class="portfolio__token-name portfolio__token-width flex">
+                <img src="/img/svg/icon-eth.svg" class="portfolio__token-image" alt="Изображение">
+                <div class="portfolio__token-name-container">
+                  <div class="portfolio__token-name-income">
+                    Eth
+                  </div>
+                  <div class="portfolio__token-name-descr">
+                    Ethereum
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio__token-price-container portfolio__token-width">
+                <div class="portfolio__token-price-income">
+                  3 249,71 $
+                </div>
+                <div class="portfolio__token-price-procent">
+                  17.25%
+                </div>
+              </div>
+              <div class="portfolio__token-total-container portfolio__token-width">
+                <div class="portfolio__token-total-income">
+                  7 432,65 $
+                </div>
+              </div>
+              <div class="portfolio__token-profit-container portfolio__token-width">
+                <div class="portfolio__token-profit-income">
+                  7 432,65 $
+                </div>
+                <div class="portfolio__token-profit-procent">
+                  13.34%
+                </div>
+              </div>
+              <div class="portfolio__token-holdings-container portfolio__token-width">
+                <div class="portfolio__token-holdings-income">
+                  19 432,65 $
+                </div>
+                <div class="portfolio__token-holdings-token">
+                  5 Eth
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="portfolio__token-item flex">
+            <div class="portfolio__token-container flex">
+              <div class="portfolio__token-name portfolio__token-width flex">
+                <img src="/img/svg/icon-sui.svg" class="portfolio__token-image" alt="Изображение">
+                <div class="portfolio__token-name-container">
+                  <div class="portfolio__token-name-income">
+                    Sui
+                  </div>
+                  <div class="portfolio__token-name-descr">
+                    Sui
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio__token-price-container portfolio__token-width">
+                <div class="portfolio__token-price-income">
+                  4,71 $
+                </div>
+                <div class="portfolio__token-price-procent">
+                  27.25%
+                </div>
+              </div>
+              <div class="portfolio__token-total-container portfolio__token-width">
+                <div class="portfolio__token-total-income">
+                  1 714,65 $
+                </div>
+              </div>
+              <div class="portfolio__token-profit-container portfolio__token-width">
+                <div class="portfolio__token-profit-income">
+                  5 319,27 $
+                </div>
+                <div class="portfolio__token-profit-procent">
+                  207.44%
+                </div>
+              </div>
+              <div class="portfolio__token-holdings-container portfolio__token-width">
+                <div class="portfolio__token-holdings-income">
+                  1 732,65 $
+                </div>
+                <div class="portfolio__token-holdings-token">
+                  400 Sui
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="portfolio__token-item flex">
+            <div class="portfolio__token-container flex">
+              <div class="portfolio__token-name portfolio__token-width flex">
+                <img src="/img/svg/icon-sei.svg" class="portfolio__token-image" alt="Изображение">
+                <div class="portfolio__token-name-container">
+                  <div class="portfolio__token-name-income">
+                    Sei
+                  </div>
+                  <div class="portfolio__token-name-descr">
+                    Sei
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio__token-price-container portfolio__token-width">
+                <div class="portfolio__token-price-income">
+                  0,71 $
+                </div>
+                <div class="portfolio__token-price-procent">
+                  9.25%
+                </div>
+              </div>
+              <div class="portfolio__token-total-container portfolio__token-width">
+                <div class="portfolio__token-total-income">
+                  2 916,02 $
+                </div>
+              </div>
+              <div class="portfolio__token-profit-container portfolio__token-width">
+                <div class="portfolio__token-profit-income">
+                  1 702,15 $
+                </div>
+                <div class="portfolio__token-profit-procent">
+                  70.41%
+                </div>
+              </div>
+              <div class="portfolio__token-holdings-container portfolio__token-width">
+                <div class="portfolio__token-holdings-income">
+                  3 615,91 $
+                </div>
+                <div class="portfolio__token-holdings-token">
+                  1200 Sei
                 </div>
               </div>
             </div>
           </li>
         </ul>
+      </div>
+    </div>
+  </div>
+  <div id="modal" class="portfolio__modal">
+    <div class="portfolio__modal-title">
+      Add Transaction
+    </div>
+    <ul class="portfolio__modal-list list-reset flex">
+      <li class="portfolio__modal-item">
+        <button class="portfolio__modal-btn btn-reset">
+          Bay
+        </button>
+      </li>
+      <li class="portfolio__modal-item">
+        <button class="portfolio__modal-btn btn-reset">
+          Sell
+        </button>
+      </li>
+      <li class="portfolio__modal-item">
+        <button class="portfolio__modal-btn btn-reset">
+          Transfer
+        </button>
+      </li>
+    </ul>
+    <div class="portfolio__modal-subtitle-box">
+      Amount
+      <div class="portfolio__modal-amount-box flex">
+        <input class="portfolio__modal-amount-inp" type="text">
+        <div class="portfolio__modal-amount-ticker">
+          Btc
+        </div>
+      </div>
+    </div>
+    <div class="portfolio__modal-subtitle-box">
+      Price
+      <div class="portfolio__modal-price-box flex">
+        <input class="portfolio__modal-price-inp" type="text">
+        <div class="portfolio__modal-price-ticker">
+          USD
+        </div>
       </div>
     </div>
   </div>
