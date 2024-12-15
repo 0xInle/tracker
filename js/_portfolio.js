@@ -12,8 +12,5 @@ heroBtn.addEventListener('click', () => {
 })
 
 addTransaction.addEventListener('click', () => {
-
-  // modal.style.display = 'block'
-  console.log('ckkckd')
   document.body.classList.add('modal-open');
 })

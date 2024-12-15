@@ -605,12 +605,12 @@
       color: var(--gray-color);
     }
 
-    &-amount-box, &-price-box {
+    &-amount-box, &-price-box, &-date-box {
       border-radius: 10px;
       background-color: rgba(6, 179, 168, 0.1);
     }
 
-    &-amount-inp, &-price-inp {
+    &-amount-inp, &-price-inp, &-date-inp {
       border: none;
       padding: 10px;
       width: 100%;
@@ -628,6 +628,29 @@
       padding: 10px;
       text-transform: uppercase;
       color: var(--white-color);
+    }
+
+    &-date-img {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+    &-date-icon {
+      width: 24px;
+      height: 24px;
+      stroke: var(--white-color);
+    }
+
+    &-date-svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--white-color);
+    }
+
+    /* stylelint-disable-next-line selector-attribute-quotes */
+    &-date-inp[type=datetime-local]::-webkit-calendar-picker-indicator{
+      display:none;
     }
   }
 }
