@@ -33,6 +33,15 @@ body {
   display: block;
 }
 
+.search-modal-open::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-modal-open #searchModal {
+  display: block;
+}
+
 img {
   height: auto;
   max-width: 100%;

@@ -4,3 +4,4 @@
 import './_portfolio.js';
 import './_priceTracker.js';
 import './_currentDate.js'
+import './_test.js'
