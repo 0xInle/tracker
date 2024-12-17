@@ -5,16 +5,13 @@ let addTransaction = document.getElementById('addTransaction')
 let modal = document.getElementById('modal')
 let searchModal = document.getElementById('searchModal')
 let body = document.getElementById('body')
+let portfolioModalClose = document.querySelector('.portfolio__modal-close')
+let portfolioSearchModalClose = document.querySelector('.portfolio__search-modal-close')
 
 heroBtn.addEventListener('click', () => {
-
   hero.style.display = 'none'
   portfolio.style.display = 'block'
 })
-
-// addTransaction.addEventListener('click', () => {
-//   document.body.classList.add('modal-open');
-// })
 
 addTransaction.addEventListener('click', async () => {
   document.body.classList.add('search-modal-open');
@@ -48,14 +45,25 @@ addTransaction.addEventListener('click', async () => {
     portfolioSearchModalBox.addEventListener('click', () => {
 
       if (portfolioSearchModalBox.dataset.symbol) {
-        console.log(`выведу в консоль ${coin.symbol}`)
-
         document.body.classList.remove('search-modal-open');
         document.body.classList.add('modal-open');
+
+        let tiker = `${coin.symbol}`
+        const portfolioModalAmountTicker = document.querySelector('.portfolio__modal-amount-ticker')
+        portfolioModalAmountTicker.textContent = tiker
       }
+    })
+
+    portfolioModalClose.addEventListener('click', () => {
+      document.body.classList.remove('modal-open');
+      document.body.classList.add('search-modal-open');
     })
 
     portfolioSearchModalList.appendChild(portfolioSearchModalItem);
     portfolioSearchModalItem.appendChild(portfolioSearchModalBox)
   });
+
+  portfolioSearchModalClose.addEventListener('click', () => {
+    document.body.classList.remove('search-modal-open');
+  })
 })

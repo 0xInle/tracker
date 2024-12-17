@@ -569,14 +569,23 @@
     border-radius: 10px;
     padding: 15px;
     width: 360px;
-    height: 480px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
 
     &-title {
+      position: relative;
       margin-bottom: 20px;
       color: var(--white-color);
+    }
+
+    &-icon {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 24px;
+      height: 24px;
+      stroke: var(--white-color);
     }
 
     &-list {
@@ -650,6 +659,18 @@
     &-date-inp[type=datetime-local]::-webkit-calendar-picker-indicator{
       display:none;
     }
+
+    &-add-btn {
+      border-radius: 10px;
+      padding: 16px 32px;
+      width: 100%;
+      max-height: 47px;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 15px;
+      color: var(--white-color);
+      background-color: var(--green-color);
+    }
   }
 
   &__search-modal {
@@ -661,14 +682,23 @@
     border-radius: 10px;
     padding: 15px;
     width: 360px;
-    height: 480px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
 
     &-title {
+      position: relative;
       margin-bottom: 20px;
       color: var(--white-color);
+    }
+
+    &-icon {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 24px;
+      height: 24px;
+      stroke: var(--white-color);
     }
 
     &-content {
