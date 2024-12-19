@@ -605,6 +605,18 @@
       line-height: 15px;
       color: var(--white-color);
       background-color: var(--bg-color);
+
+      &-bay {
+        &.active-bay {
+          background-color: var(--green-color);
+        }
+      }
+
+      &-sell {
+        &.active-sell {
+          background-color: var(--green-color);
+        }
+      }
     }
 
     &-subtitle-box {

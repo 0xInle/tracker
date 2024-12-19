@@ -406,7 +406,7 @@
               </div>
             </div>
           </li>
-          <li class="portfolio__token-item flex">
+          <!-- <li class="portfolio__token-item flex">
             <div class="portfolio__token-container flex">
               <div class="portfolio__token-name portfolio__token-width flex">
                 <img src="/img/svg/icon-eth.svg" class="portfolio__token-image" alt="Изображение">
@@ -537,7 +537,7 @@
                 </div>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -547,18 +547,19 @@
       Add Transaction
     </div>
     <button class="portfolio__modal-close btn-reset">
-      <svg class="portfolio__modal-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      <svg class="portfolio__modal-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
     <ul class="portfolio__modal-list list-reset flex">
       <li class="portfolio__modal-item">
-        <button class="portfolio__modal-btn btn-reset">
+        <button class="portfolio__modal-btn portfolio__modal-btn-bay btn-reset">
           Bay
         </button>
       </li>
       <li class="portfolio__modal-item">
-        <button class="portfolio__modal-btn btn-reset">
+        <button class="portfolio__modal-btn portfolio__modal-btn-sell btn-reset">
           Sell
         </button>
       </li>
@@ -571,7 +572,7 @@
     <div class="portfolio__modal-subtitle-box">
       Amount
       <div class="portfolio__modal-amount-box flex">
-        <input class="portfolio__modal-amount-inp" type="text">
+        <input id="amount" class="portfolio__modal-amount-inp" type="text">
         <div class="portfolio__modal-amount-ticker">
           Btc
         </div>
@@ -580,7 +581,7 @@
     <div class="portfolio__modal-subtitle-box">
       Price
       <div class="portfolio__modal-price-box flex">
-        <input class="portfolio__modal-price-inp" type="text">
+        <input id="price" class="portfolio__modal-price-inp" type="text">
         <div class="portfolio__modal-price-ticker">
           USD
         </div>
@@ -589,7 +590,7 @@
     <div class="portfolio__modal-subtitle-box">
       Date
       <div class="portfolio__modal-date-box flex">
-        <input class="portfolio__modal-date-inp" type="datetime-local" id="dateTimeInput" />
+        <input class="portfolio__modal-date-inp" type="datetime-local" id="date" />
         <div class="portfolio__modal-date-img">
           <svg class="portfolio__modal-date-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
             stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -602,7 +603,7 @@
     <div class="portfolio__modal-subtitle-box">
       Total
       <div class="portfolio__modal-price-box flex">
-        <input class="portfolio__modal-price-inp" type="text">
+        <input id="total" class="portfolio__modal-price-inp" type="text">
         <div class="portfolio__modal-price-ticker">
           USD
         </div>
@@ -617,8 +618,9 @@
       Add Transaction
     </div>
     <button class="portfolio__search-modal-close btn-reset">
-      <svg class="portfolio__search-modal-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      <svg class="portfolio__search-modal-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
     <div class="portfolio__search-modal-content">
@@ -630,6 +632,5 @@
       <ul id="portfolioSearchModalList" class="portfolio__search-modal-list list-reset">
       </ul>
     </div>
-  </div>
   </div>
 </section>
