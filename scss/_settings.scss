@@ -20,7 +20,7 @@ body {
     background: rgba(0, 0, 0, 0.5);
     opacity: 0; /* Изначально скрыт */
     visibility: hidden; /* Элемент невидим */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Анимация появления */
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out; /* Анимация появления */
   }
 }
 

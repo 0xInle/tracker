@@ -1,4 +1,4 @@
-// Запрос активов на главную страницу
+// Вывод активов на главную страницу
 const options = { method: 'GET', headers: { accept: 'application/json' } };
 
 async function fetchAndUpdateData() {

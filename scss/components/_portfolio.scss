@@ -609,12 +609,14 @@
       &-bay {
         &.active-bay {
           background-color: var(--green-color);
+          transition: all .3s ease-in-out;
         }
       }
 
       &-sell {
         &.active-sell {
           background-color: var(--green-color);
+          transition: all .3s ease-in-out;
         }
       }
     }
@@ -746,6 +748,7 @@
       align-items: center;
       border-radius: 10px;
       padding: 10px;
+      color: var(--white-color);
       transition: all .3s ease-in-out;
 
       @include hover {
