@@ -8,6 +8,8 @@ heroBtn.addEventListener('click', () => {
 })
 
 // Вызов модального окна с поиском
+let addTransaction = document.getElementById('addTransaction')
+
 addTransaction.addEventListener('click', () => {
   searchModal.style.display = 'block'
   document.body.classList.add('search-modal-open')
@@ -18,6 +20,8 @@ addTransaction.addEventListener('click', () => {
   let portfolioSearchModalClose = document.querySelector('.portfolio__search-modal-close')
 
   portfolioSearchModalClose.addEventListener('click', () => {
+    let portfolioSearchModalContentInp = document.querySelector('.portfolio__search-modal-content-inp')
+    portfolioSearchModalContentInp.value = ''
     searchModal.style.display = 'none'
     document.body.classList.remove('search-modal-open')
   })
@@ -38,7 +42,6 @@ export async function assetTop() {
     portfolioSearchModalList.innerHTML = ''
 
     data.forEach(element => {
-
       const portfolioSearchModalItem = document.createElement('li')
       portfolioSearchModalItem.classList.add('portfolio__search-modal-item')
       const portfolioSearchModalBox = document.createElement('div')
@@ -99,6 +102,7 @@ function closeModal() {
 }
 
 // Функция вызова модального окна транзакций
+export let token
 export function callModal(portfolioSearchModalBox, element) {
   portfolioSearchModalBox.addEventListener('click', () => {
     modal.style.display = 'block'
@@ -109,6 +113,7 @@ export function callModal(portfolioSearchModalBox, element) {
     selectedAction = 'bay'
 
     let symbol = `${element.symbol}`
+    token = element
     const portfolioModalAmountTicker = document.querySelector('.portfolio__modal-amount-ticker')
     portfolioModalAmountTicker.textContent = symbol
 
