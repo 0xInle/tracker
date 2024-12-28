@@ -33,9 +33,6 @@ portfolioSearchModalContentInp.addEventListener('input', (e) => {
 
   if (query.length > 0) {
     const filteredAsset = filterAsset(query)
-
-    console.log(filteredAsset)
-
     const portfolioSearchModalList = document.getElementById('portfolioSearchModalList')
     portfolioSearchModalList.innerHTML = ''
 

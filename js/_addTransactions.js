@@ -1,4 +1,6 @@
 import { token } from './_modalOpen.js'
+import { formatCurrency } from './_assetWithdrawal.js'
+import { formatPercentage } from './_assetWithdrawal.js'
 
 let portfolioArray = []
 const portfolioModalAddBtn = document.querySelector('.portfolio__modal-add-btn')
@@ -12,26 +14,39 @@ let portfolioTokenList = document.querySelector('.portfolio__token-list')
 
 // Функция добавления данных в массив
 function handleAddTransaction() {
-  const amount = addAmount.value
-  const asset = addAsset.textContent
-  // const price = addPrice.value
-  const date = addDate.value
-  const total = addTotal.value
+  const amount = parseFloat(addAmount.value) // Колличество купленных активов
+  const asset = addAsset.textContent // Название актива
+  const date = addDate.value // Дата транзакции
+  const total = addTotal.value // Общее колличество потраченых USD
+  const name = token.name // Имя актива
+  const image = token.image // Логотип актива
+  const price = parseFloat(addPrice.value) // Цена покупки
+  const currentPrice = parseFloat(token.current_price) // Текущая цена актива
+  const percent = formatPercentage(token.market_cap_change_percentage_24h) // Процент изменения за 24 часа
 
-  const name = token.name
-  const image = token.image
-  const price = token.current_price
-  const percent = token.market_cap_change_percentage_24h
+  let totalAmount = amount * price
+  let formattedTotal = formatCurrency(totalAmount)
+
+  let profit = (currentPrice - price) * amount
+  let formatCurrentPrice = formatCurrency(currentPrice)
+  let formatProfit = formatCurrency(profit)
+
+  let profitPercent = ((currentPrice - price) / price) * 100
+  let formatProfitPercent = formatPercentage(profitPercent)
 
   let transaction = {
     amount,
     asset,
-    price,
     date,
     total,
     name,
     image,
-    percent
+    price,
+    currentPrice,
+    percent,
+    formattedTotal,
+    formatProfit,
+    formatProfitPercent
   }
 
   addAmount.value = '';
@@ -42,47 +57,57 @@ function handleAddTransaction() {
   modal.style.display = 'none'
   document.body.classList.remove('search-modal-open')
   portfolioArray.push(transaction);
-  console.log(token)
+  // console.log(token)
 
   const portfolioTokenItem = document.createElement('li')
   portfolioTokenItem.classList.add('portfolio__token-item', 'flex')
   const portfolioTokenContainer = document.createElement('div')
-  portfolioTokenContainer.classList.add('portfolio__token-name', 'portfolio__token-width', 'flex')
+  portfolioTokenContainer.classList.add('portfolio__token-container', 'flex')
   portfolioTokenContainer.innerHTML = `
-  <img src="${image}" alt="${name}" class="portfolio__token-image">
-  <div class="portfolio__token-name-container flex">
-  <div class="portfolio__token-name-income">
-  ${asset}
+  <div class="portfolio__token-name portfolio__token-width flex">
+    <img src="${image}" alt="${name}" class="portfolio__token-image">
+    <div class="portfolio__token-name-container">
+      <div class="portfolio__token-name-income">
+        ${asset}
+      </div>
+      <div class="portfolio__token-name-descr">
+        ${name}
+      </div>
+    </div>
   </div>
-  <div class="portfolio__token-name-descr">
-    ${name}
+  <div class="portfolio__token-price-container portfolio__token-width">
+    <div class="portfolio__token-price-income">
+      ${formatCurrentPrice}
+    </div>
+    <div class="portfolio__token-price-procent">
+      ${percent}
+    </div>
   </div>
-  <div class="portfolio__token-price-container portfolio__token-width flex">
-  <div class="portfolio__token-price-income">
-  ${price}
+  <div class="portfolio__token-total-container portfolio__token-width">
+    <div class="portfolio__token-total-income">
+      ${formattedTotal}
+    </div>
   </div>
-  <div class="portfolio__token-price-procent">
-    ${percent}
+  <div class="portfolio__token-profit-container portfolio__token-width">
+    <div class="portfolio__token-profit-income">
+      ${formatProfit}
+    </div>
+    <div class="portfolio__token-profit-procent">
+      ${formatProfitPercent}
+    </div>
   </div>
+  <div class="portfolio__token-holdings-container portfolio__token-width">
+    <div class="portfolio__token-holdings-income">
+      19 432,65 $
+    </div>
+    <div class="portfolio__token-holdings-token">
+      5 Eth
+    </div>
   </div>
   `
 
   portfolioTokenList.appendChild(portfolioTokenItem)
   portfolioTokenItem.appendChild(portfolioTokenContainer)
-
-
-  // const portfolioSearchModalBox = document.createElement('div')
-  // portfolioSearchModalBox.classList.add('portfolio__search-modal-box', "flex",)
-  // portfolioSearchModalBox.dataset.symbol = element.symbol;
-  // portfolioSearchModalBox.innerHTML = `
-  // <img src="${element.image}" alt="${element.name}" class="portfolio__search-modal-img">
-  // <div class="portfolio__search-modal-name">
-  // ${element.symbol}
-  // </div>
-  // <div class="portfolio__search-modal-subname">
-  // ${element.name}
-  // </div>
-  // `
 
   // Удаляем обработчик события
   portfolioModalAddBtn.removeEventListener('click', handleAddTransaction)
@@ -91,4 +116,3 @@ function handleAddTransaction() {
 export function addTransactions() {
   portfolioModalAddBtn.addEventListener('click', handleAddTransaction)
 }
-

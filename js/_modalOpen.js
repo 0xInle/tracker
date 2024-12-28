@@ -120,3 +120,13 @@ export function callModal(portfolioSearchModalBox, element) {
     addTransactions()
   })
 }
+
+// // Функция подсчета тотала при добавлении транзакции
+// function totalCalculation() {
+//   const portfolioModalAmountInp = document.querySelector('.portfolio__modal-amount-inp')
+//   const portfolioModalPriceInp = document.querySelector('.portfolio__modal-price-inp')
+
+//   portfolioModalAmountInp
+//   console.log(portfolioModalAmountInp.value)
+//   console.log(portfolioModalPriceInp.value)
+// }

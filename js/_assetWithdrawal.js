@@ -51,7 +51,7 @@ fetchAndUpdateData()
 setInterval(fetchAndUpdateData, 60000)
 
 // Функция форматирования цены
-function formatCurrency(value) {
+export function formatCurrency(value) {
   return new Intl.NumberFormat('en-US', {
     style: 'decimal',
     minimumFractionDigits: 2,
@@ -59,7 +59,7 @@ function formatCurrency(value) {
   }).format(value).replace(/,/g, ' ') + ' $';
 }
 
-// // Функция форматирования процентов
-function formatPercentage(value) {
-  return value.toFixed(2) + ' %'
+// Функция форматирования процентов
+export function formatPercentage(value) {
+  return value.toFixed(2) + '%'
 }
