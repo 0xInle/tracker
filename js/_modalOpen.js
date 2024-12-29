@@ -27,45 +27,46 @@ addTransaction.addEventListener('click', () => {
   })
 })
 
-// Функция вызова топ-30 активов
-export async function assetTop() {
+export async function assetTop(allAsset) {
   try {
-    const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1')
-
-    if (!response.ok) {
-      throw new Error('Ошибка при получении данных')
+    // Проверяем, что allAsset существует и не пустой
+    if (!allAsset || allAsset.length === 0) {
+      throw new Error('Данные не загружены');
     }
 
-    const data = await response.json()
+    // Сортируем активы по рыночной капитализации и берем топ-30
+    const topAssets = allAsset.sort((a, b) => b.market_cap - a.market_cap).slice(0, 30);
 
-    const portfolioSearchModalList = document.getElementById('portfolioSearchModalList')
-    portfolioSearchModalList.innerHTML = ''
+    const portfolioSearchModalList = document.getElementById('portfolioSearchModalList');
+    portfolioSearchModalList.innerHTML = '';
 
-    data.forEach(element => {
-      const portfolioSearchModalItem = document.createElement('li')
-      portfolioSearchModalItem.classList.add('portfolio__search-modal-item')
-      const portfolioSearchModalBox = document.createElement('div')
-      portfolioSearchModalBox.classList.add('portfolio__search-modal-box', "flex",)
+    topAssets.forEach(element => {
+      const portfolioSearchModalItem = document.createElement('li');
+      portfolioSearchModalItem.classList.add('portfolio__search-modal-item');
+      const portfolioSearchModalBox = document.createElement('div');
+      portfolioSearchModalBox.classList.add('portfolio__search-modal-box', "flex");
       portfolioSearchModalBox.dataset.symbol = element.symbol;
       portfolioSearchModalBox.innerHTML = `
-      <img src="${element.image}" alt="${element.name}" class="portfolio__search-modal-img">
-      <div class="portfolio__search-modal-name">
-      ${element.symbol}
-      </div>
-      <div class="portfolio__search-modal-subname">
-      ${element.name}
-      </div>
-      `
+        <img src="${element.image}" alt="${element.name}" class="portfolio__search-modal-img">
+        <div class="portfolio__search-modal-name">
+          ${element.symbol}
+        </div>
+        <div class="portfolio__search-modal-subname">
+          ${element.name}
+        </div>
+      `;
 
       portfolioSearchModalList.appendChild(portfolioSearchModalItem);
-      portfolioSearchModalItem.appendChild(portfolioSearchModalBox)
+      portfolioSearchModalItem.appendChild(portfolioSearchModalBox);
 
-      callModal(portfolioSearchModalBox, element)
+      callModal(portfolioSearchModalBox, element);
     });
-    changeColor(selectedAction)
-    closeModal()
-    currentDate()
-    setTimeout(currentDate, 60000)
+
+    // Ваши функции для обновления данных
+    changeColor(selectedAction);
+    closeModal();
+    currentDate();
+    setTimeout(currentDate, 60000);
 
   } catch (error) {
     console.error('Ошибка:', error.message);
@@ -114,19 +115,10 @@ export function callModal(portfolioSearchModalBox, element) {
 
     let symbol = `${element.symbol}`
     token = element
+    console.log(element)
     const portfolioModalAmountTicker = document.querySelector('.portfolio__modal-amount-ticker')
     portfolioModalAmountTicker.textContent = symbol
 
     addTransactions()
   })
 }
-
-// // Функция подсчета тотала при добавлении транзакции
-// function totalCalculation() {
-//   const portfolioModalAmountInp = document.querySelector('.portfolio__modal-amount-inp')
-//   const portfolioModalPriceInp = document.querySelector('.portfolio__modal-price-inp')
-
-//   portfolioModalAmountInp
-//   console.log(portfolioModalAmountInp.value)
-//   console.log(portfolioModalPriceInp.value)
-// }

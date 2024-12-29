@@ -1,20 +1,19 @@
-// Вывод активов на главную страницу
-const options = { method: 'GET', headers: { accept: 'application/json' } };
+import { assetTop } from "./_modalOpen.js";
 
 async function fetchAndUpdateData() {
   try {
-    const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20sui%2Csei-network&price_change_percentage=1h&precision=2', options)
+    const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250');
 
     if (!response.ok) {
       throw new Error('Ошибка при получении данных')
     }
 
-    const data = await response.json()
+    const allAsset = await response.json()
 
-    const btc = data[0];
-    const eth = data[1];
-    const sui = data[2];
-    const sei = data[3];
+    const btc = allAsset.find(item => item.id === 'bitcoin');
+    const eth = allAsset.find(item => item.id === 'ethereum');
+    const sui = allAsset.find(item => item.id === 'sui');
+    const sei = allAsset.find(item => item.id === 'sei-network');
 
     document.getElementById('btc-price').textContent = formatCurrency(btc.current_price);
     document.getElementById('btc-procent').textContent = formatPercentage(btc.market_cap_change_percentage_24h);
@@ -41,6 +40,9 @@ async function fetchAndUpdateData() {
       document.getElementById('sei-procent').style.color = seiPercentage > 0 ? '#46a756' : '#ae3434';
     }
     changeColor();
+
+    assetTop(allAsset);
+
   } catch (error) {
     console.error('Ошибка:', error.message);
   };

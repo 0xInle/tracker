@@ -23,6 +23,9 @@ function handleAddTransaction() {
   const price = parseFloat(addPrice.value) // Цена покупки
   const currentPrice = parseFloat(token.current_price) // Текущая цена актива
   const percent = formatPercentage(token.market_cap_change_percentage_24h) // Процент изменения за 24 часа
+  const symbol = token.symbol // Тикер актива
+
+  console.log(token.current_price)
 
   let totalAmount = amount * price
   let formattedTotal = formatCurrency(totalAmount)
@@ -33,6 +36,9 @@ function handleAddTransaction() {
 
   let profitPercent = ((currentPrice - price) / price) * 100
   let formatProfitPercent = formatPercentage(profitPercent)
+
+  let totalHoldings = amount * currentPrice
+  let formatTotalHoldings = formatCurrency(totalHoldings)
 
   let transaction = {
     amount,
@@ -46,7 +52,9 @@ function handleAddTransaction() {
     percent,
     formattedTotal,
     formatProfit,
-    formatProfitPercent
+    formatProfitPercent,
+    symbol,
+    totalHoldings
   }
 
   addAmount.value = '';
@@ -57,7 +65,6 @@ function handleAddTransaction() {
   modal.style.display = 'none'
   document.body.classList.remove('search-modal-open')
   portfolioArray.push(transaction);
-  // console.log(token)
 
   const portfolioTokenItem = document.createElement('li')
   portfolioTokenItem.classList.add('portfolio__token-item', 'flex')
@@ -98,10 +105,10 @@ function handleAddTransaction() {
   </div>
   <div class="portfolio__token-holdings-container portfolio__token-width">
     <div class="portfolio__token-holdings-income">
-      19 432,65 $
+      ${formatTotalHoldings}
     </div>
     <div class="portfolio__token-holdings-token">
-      5 Eth
+    ${amount} ${symbol}
     </div>
   </div>
   `
