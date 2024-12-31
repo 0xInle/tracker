@@ -27,14 +27,13 @@ addTransaction.addEventListener('click', () => {
   })
 })
 
+// Функция отображения топ-30 активов
 export async function assetTop(allAsset) {
   try {
-    // Проверяем, что allAsset существует и не пустой
     if (!allAsset || allAsset.length === 0) {
       throw new Error('Данные не загружены');
     }
 
-    // Сортируем активы по рыночной капитализации и берем топ-30
     const topAssets = allAsset.sort((a, b) => b.market_cap - a.market_cap).slice(0, 30);
 
     const portfolioSearchModalList = document.getElementById('portfolioSearchModalList');
@@ -62,7 +61,6 @@ export async function assetTop(allAsset) {
       callModal(portfolioSearchModalBox, element);
     });
 
-    // Ваши функции для обновления данных
     changeColor(selectedAction);
     closeModal();
     currentDate();
@@ -122,3 +120,18 @@ export function callModal(portfolioSearchModalBox, element) {
     addTransactions()
   })
 }
+
+// Функция подсчета total и отображения в portfolio__modal-price-inp
+const amounInp = document.getElementById('amount')
+const priceInp = document.getElementById('price')
+const totalInp = document.getElementById('total')
+
+function calculatTotal() {
+  const amount = parseFloat(amounInp.value)
+  const price = parseFloat(priceInp.value)
+
+  totalInp.value = amount * price
+}
+
+amounInp.addEventListener('input', calculatTotal)
+priceInp.addEventListener('input', calculatTotal)
