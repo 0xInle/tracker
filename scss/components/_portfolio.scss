@@ -476,10 +476,14 @@
     }
 
     &-heading-width {
-      width: 20%;
+      width: 17%;
 
       &:not(:first-child) {
         text-align: end;
+      }
+
+      &-sm {
+        width: 15%;
       }
     }
 
@@ -500,10 +504,14 @@
     }
 
     &-width {
-      width: 20%;
+      width: 17%;
 
       &:not(:first-child) {
         text-align: end;
+      }
+
+      &-sm {
+        width: 15%;
       }
     }
 

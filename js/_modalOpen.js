@@ -1,5 +1,6 @@
 import { currentDate } from "./_currentDate.js"
 import { addTransactions } from './_addTransactions.js'
+import { allAsset } from "./_assetWithdrawal.js"
 
 // Вызов страницы портфолио
 heroBtn.addEventListener('click', () => {
@@ -14,7 +15,7 @@ addTransaction.addEventListener('click', () => {
   searchModal.style.display = 'block'
   document.body.classList.add('search-modal-open')
 
-  assetTop()
+  assetTop(allAsset)
 
   // Закрытие модального окна
   let portfolioSearchModalClose = document.querySelector('.portfolio__search-modal-close')
@@ -113,9 +114,10 @@ export function callModal(portfolioSearchModalBox, element) {
 
     let symbol = `${element.symbol}`
     token = element
-    console.log(element)
     const portfolioModalAmountTicker = document.querySelector('.portfolio__modal-amount-ticker')
     portfolioModalAmountTicker.textContent = symbol
+    const portfolioModalPriceInp = document.querySelector(".portfolio__modal-price-inp")
+    portfolioModalPriceInp.value = element.current_price
 
     addTransactions()
   })

@@ -1,5 +1,7 @@
 import { assetTop } from "./_modalOpen.js";
 
+export let allAsset = []
+
 async function fetchAndUpdateData() {
   try {
     const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250');
@@ -8,7 +10,7 @@ async function fetchAndUpdateData() {
       throw new Error('Ошибка при получении данных')
     }
 
-    const allAsset = await response.json()
+    allAsset = await response.json()
 
     const btc = allAsset.find(item => item.id === 'bitcoin');
     const eth = allAsset.find(item => item.id === 'ethereum');

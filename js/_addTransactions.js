@@ -20,12 +20,10 @@ function handleAddTransaction() {
   const total = addTotal.value // Общее колличество потраченых USD
   const name = token.name // Имя актива
   const image = token.image // Логотип актива
-  const price = parseFloat(addPrice.value) // Цена покупки
   const currentPrice = parseFloat(token.current_price) // Текущая цена актива
+  const price = parseFloat(addPrice.value) || currentPrice // Цена покупки
   const percent = formatPercentage(token.market_cap_change_percentage_24h) // Процент изменения за 24 часа
   const symbol = token.symbol // Тикер актива
-
-  console.log(token.current_price)
 
   let totalAmount = amount * price
   let formattedTotal = formatCurrency(totalAmount)
@@ -39,6 +37,10 @@ function handleAddTransaction() {
 
   let totalHoldings = amount * currentPrice
   let formatTotalHoldings = formatCurrency(totalHoldings)
+
+  const avg = totalAmount / amount // Средняя цена
+  let formatAvg = formatCurrency(avg);
+  console.log(formatAvg)
 
   let transaction = {
     amount,
@@ -54,7 +56,8 @@ function handleAddTransaction() {
     formatProfit,
     formatProfitPercent,
     symbol,
-    totalHoldings
+    totalHoldings,
+    avg
   }
 
   addAmount.value = '';
@@ -71,7 +74,7 @@ function handleAddTransaction() {
   const portfolioTokenContainer = document.createElement('div')
   portfolioTokenContainer.classList.add('portfolio__token-container', 'flex')
   portfolioTokenContainer.innerHTML = `
-  <div class="portfolio__token-name portfolio__token-width flex">
+  <div class="portfolio__token-name portfolio__token-width-sm flex">
     <img src="${image}" alt="${name}" class="portfolio__token-image">
     <div class="portfolio__token-name-container">
       <div class="portfolio__token-name-income">
@@ -93,6 +96,11 @@ function handleAddTransaction() {
   <div class="portfolio__token-total-container portfolio__token-width">
     <div class="portfolio__token-total-income">
       ${formattedTotal}
+    </div>
+  </div>
+  <div class="portfolio__token-total-container portfolio__token-width">
+    <div class="portfolio__token-total-income">
+      ${formatAvg}
     </div>
   </div>
   <div class="portfolio__token-profit-container portfolio__token-width">
