@@ -75,20 +75,26 @@ export async function assetTop(allAsset) {
 // Функция изменения цвета bay и sell
 const portfolioModalBtnBay = document.querySelector('.portfolio__modal-btn-bay')
 const portfolioModalBtnSell = document.querySelector('.portfolio__modal-btn-sell')
-let selectedAction = ''; // Переменная для хранения buy или sell
+export let selectedAction = 'bay'; // Переменная для хранения buy или sell
 
-function changeColor(selectedAction) {
-  portfolioModalBtnSell.addEventListener('click', () => {
-    portfolioModalBtnSell.classList.add('active-sell')
-    portfolioModalBtnBay.classList.remove('active-bay')
-    selectedAction = 'sell'
-  })
+function changeColor() {
+  if (!portfolioModalBtnSell.hasAttribute('listener')) {
+    portfolioModalBtnSell.addEventListener('click', () => {
+      portfolioModalBtnSell.classList.add('active-sell');
+      portfolioModalBtnBay.classList.remove('active-bay');
+      selectedAction = 'sell';
+    });
+    portfolioModalBtnSell.setAttribute('listener', 'true');
+  }
 
-  portfolioModalBtnBay.addEventListener('click', () => {
-    portfolioModalBtnSell.classList.remove('active-sell')
-    portfolioModalBtnBay.classList.add('active-bay')
-    selectedAction = 'bay'
-  })
+  if (!portfolioModalBtnBay.hasAttribute('listener')) {
+    portfolioModalBtnBay.addEventListener('click', () => {
+      portfolioModalBtnSell.classList.remove('active-sell');
+      portfolioModalBtnBay.classList.add('active-bay');
+      selectedAction = 'bay';
+    });
+    portfolioModalBtnBay.setAttribute('listener', 'true');
+  }
 }
 
 // Функция закрытия модального окна
